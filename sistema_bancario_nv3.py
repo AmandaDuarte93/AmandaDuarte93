@@ -19,9 +19,9 @@ def Depositar(saldo, valor, extrato, numero_operacoes, /):
     
     if valor > 0:
         saldo += valor
-        data_hora = datetime.now().strftime("%d/%m-%Y %H:%M")
+        data_hora = datetime.now().strftime("%d/%m-%Y %H:%M") # adicionando hora e data na operação.
         extrato += f"Depósito: R$ {valor:.2f} em {data_hora}\n"
-        numero_operacoes += 1
+        numero_operacoes += 1 # incrementando numero de operação para somar e parar no limite
         print("Depósito realizado com sucesso!")
     else:
         print("Operação não realizada, valor inválido!")
@@ -70,7 +70,7 @@ def criar_usuario(usuarios):
     data_nascimento = input("Escreva sua data de nascimento (dd/mm/aaaa): ")
     endereco = input("Escreva seu endereço (Logradouro, numero - bairro - cidade/sigla estado): ")
 
-    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco})
+    usuarios.append({"nome": nome, "data_nascimento": data_nascimento, "cpf": cpf, "endereco": endereco}) # adicionando o usuario ao dicionário.
 
     print("\n Usuário criado com sucesso!")
 
@@ -130,7 +130,7 @@ def main():
             Extrato(saldo, extrato=extrato)
 
         elif opcao == "4":
-            numero_conta = len(contas) + 1
+            numero_conta = len(contas) + 1 # incrementando numero de contas para não repetir.
             conta = criar_conta(AGENCIA, numero_conta, usuarios)
 
             if conta:
